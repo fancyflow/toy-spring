@@ -32,7 +32,7 @@ public abstract class AbstractApplicationEventMulticaster implements Application
         this.applicationListeners.remove(listener);
     }
 
-    public Set<ApplicationListener<ApplicationEvent>> ApgetApplicationListeners() {
+    public Set<ApplicationListener<ApplicationEvent>> getApplicationListeners() {
         return this.applicationListeners;
     }
 }
