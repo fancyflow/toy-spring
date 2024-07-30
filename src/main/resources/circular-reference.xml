@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans>
+    <bean class="com.chaoching.springframework.bean.A">
+        <property name="b" ref="b"/>
+    </bean>
+    <bean class="com.chaoching.springframework.bean.B">
+    </bean>
+</beans>

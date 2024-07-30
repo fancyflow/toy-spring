@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans>
+    <bean id="student" class="com.chaoching.springframework.bean.Student">
+        <property name="studentNo" value="2022201815"/>
+        <property name="name" value="zq"/>
+    </bean>
+    <bean class="com.chaoching.springframework.common.event.CustomEventListener"/>
+    <bean class="com.chaoching.springframework.common.event.ApplicationContextRefreshedEventListener"/>
+    <bean class="com.chaoching.springframework.common.event.ApplicationContextClosedEventListener"/>
+</beans>

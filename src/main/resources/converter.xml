@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans>
+    <bean class="com.chaoching.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>
+    <bean id="businessService" class="com.chaoching.springframework.service.impl.BusinessServiceImpl"/>
+
+    <bean id="methodInterceptor" class="com.chaoching.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor">
+        <property name="advice" ref="beforeAdvice"/>
+    </bean>
+
+    <bean id="beforeAdvice" class="com.chaoching.springframework.common.BusinessServiceBeforeAdvice"/>
+
+    <bean id="pointcutAdvisor" class="com.chaoching.springframework.aop.aspectj.AspectJExpressionPointcutAdvisor">
+        <property name="expression" value="execution(* com.chaoching.springframework.service.BusinessService.doSomething(..))"/>
+        <property name="advice" ref="methodInterceptor"/>
+    </bean>
+
+    <bean id="car" class="com.chaoching.springframework.bean.Car">
+        <property name="brand" value="${brand}"/>
+        <property name="price" value="1000000"/>
+    </bean>
+    <bean id="student" class="com.chaoching.springframework.bean.Student">
+        <property name="name" value="zq"/>
+        <property name="studentNo" value="${studentNo}"/>
+    </bean>
+    <bean id="person" class="com.chaoching.springframework.bean.Person">
+        <property name="name" value="${name}"/>
+        <property name="age" value="25"/>
+        <property name="car" ref="car"/>
+    </bean>
+    <bean class="com.chaoching.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+        <property name="location" value="classpath:application.properties"/>
+    </bean>
+
+    <bean id="conversionService" class="com.chaoching.springframework.context.support.ConversionServiceFactoryBean"/>
+
+    <component-scan base-package="com.chaoching.springframework.bean"/>
+</beans>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+    <bean id="car" class="com.chaoching.springframework.bean.Car">
+        <property name="brand" value="BMW"/>
+    </bean>
+
+    <bean id="person" class="com.chaoching.springframework.bean.Person">
+        <property name="name" value="zq"/>
+        <property name="car" ref="car"/>
+    </bean>
+
+    <bean id="student" class="com.chaoching.springframework.bean.Student"
+          init-method="customInitMethod" destroy-method="customDestroyMethod">
+        <property name="studentNo" value="2022201815"/>
+        <property name="name" value="zq"/>
+    </bean>
+
+    <bean class="com.chaoching.springframework.common.CustomerBeanFactoryPostProcessor"/>
+    <bean class="com.chaoching.springframework.common.CustomerBeanPostProcessor"/>
+</beans>
